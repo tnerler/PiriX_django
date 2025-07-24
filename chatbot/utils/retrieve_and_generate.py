@@ -1,21 +1,15 @@
+# retrieve_and_generate.py
 from typing_extensions import List, TypedDict
 from langchain.schema import Document
 from utils._faiss import build_store
 from utils.load_docs import load_docs
 from utils.openai_clients import get_llm
-import numpy as np 
-import pickle 
-from sentence_transformers import CrossEncoder
 from operator import itemgetter
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder, SystemMessagePromptTemplate
-from langchain.prompts import PromptTemplate
-from sklearn.metrics.pairwise import cosine_similarity
-from utils.type_embedding import load_embedding_cache, save_embedding_cache
+from sentence_transformers import CrossEncoder
 
-cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L12-v2")
-cache_path = "type_embeddings_cache.pkl"
-type_embeddings_cache = load_embedding_cache(cache_path)  
+cross_encoder = CrossEncoder("cross-encoder/ms-marco-TinyBERT-L-6")
 
 class State(TypedDict):
     question: str
@@ -24,7 +18,6 @@ class State(TypedDict):
 
 def build_chatbot():  
     docs = load_docs()
-
     vector_store = build_store(docs)
 
     memory = ConversationBufferMemory(
@@ -36,18 +29,24 @@ def build_chatbot():
 
     template = ChatPromptTemplate.from_messages([
     SystemMessagePromptTemplate.from_template(
-        """Sen Bilişim Kulübü COMPRU tarafından oluşturulmuş, Piri Reis Üniversitesi'nin aday öğrenciler için oluşturulmuş resmi bilgi asistanı PiriX'sin.
-        Öğrencilere ve ziyaretçilere üniversite ile ilgili doğru bilgileri herkesin anlayabileceği kısa ve öz cevap vermekle sorumlusun. Kullanıcı soruları 
-        genel yargı içeren sorularsa ('okul nasıl?', 'okul iyi mi?'), üniversitenin güçlü yönlerini vurgulayan, pozitif, motive edici, herkesin anlayabileceği kısa 
-        ve öz cevap ver. Eğer kullanıcı senden herhangi bir konuda liste (kulüpler, bölümler, öğretim üyeleri vb.) istiyorsa, sağlanan bağlamdaki maddelerin tamamını
-        eksiksiz, numaralı ya da madde işaretli biçimde listele; bağlamda olmayan maddeleri ekleme. Diğer tüm durumlarda, yalnızca verilen bağlamı kullanarak kısa,
-        net ve kendi içinde tamamlanmış cevaplar sun. Bağlam dışında yer almayan hiçbir bilgiyi ekleme ve kullanıcıyı ek kaynaklara yönlendirme. Tüm cevapların, 
-        her zaman Üniversite hakkında ikna edici herkesin anlayabileceği olabildiğince kısa (en fazla 3 cümle) ve öz bir cevap üretmen gerekiyor.Fiyatlar bilgisi seneliktir.
-        Bilgin olmayan sorularda şu şekilde cevap ver: "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: **+90 216 581 00 50**.
-        Fiyat bilgileri 2025-2026 eğitim öğretim yılına aittir. 
-        Eğer ücretler hakkında soru sorarsa her mesajın sonunda daha fazla detay için şu adresten  https://aday.pirireis.edu.tr/ucretler/ bilgi alabilirsiniz de."""
+        """
+        Sen PiriX'sin, Piri Reis Üniversitesi'nin bilgi asistanısın. Temel görevin: Okul hakkında kısa, doğru ve anlaşılır bilgiler vermek.
 
+        ÖNEMLİ KURALLAR:
+        1. SADECE Piri Reis Üniversitesi konularına yanıt ver. Diğer konularda: "Ben sadece Piri Reis Üniversitesi hakkında bilgi verebilirim 💙 Diğer konular için başka bir asistana sormanı öneririm!"
 
+        2. Bilmediğin konularda: "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"
+
+        3. Samimi ve arkadaşça konuş, robot gibi yanıtlardan kaçın. Emoji kullanabilirsin 😊
+
+        4. Fiyat bilgilerinde her zaman "2025-2026 yılı ücretleri" olduğunu belirt ve şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
+
+        5. Bölüm/kulüp listeleri sorulursa, verilen bilgilere sadık kalarak numaralı liste kullan. Uydurma.
+
+        6. Okul tanıtımı sorularında güçlü yönleri vurgula ama abartma.
+
+        7. Yanıtlar her zaman doğru, kısa ve net olmalı.
+        """
     ),
     MessagesPlaceholder(variable_name="chat_history"),
     HumanMessagePromptTemplate.from_template(
@@ -55,63 +54,32 @@ def build_chatbot():
     ),
 ])
 
-
-    chain = template |get_llm()
+    chain = template | get_llm()
 
     def retrieve(state: State):
         query = state["question"]
         
-
-        query_embedding = vector_store.embedding_function.embed_query(query)
-        results = vector_store.similarity_search_with_score(query, k=30)
-
-
-        boosted_docs = []
-
-        for doc, score in results:
-            type_boost = 0
-            doc_type = doc.metadata.get("type")
-
-            if doc_type:
-
-                if doc_type in type_embeddings_cache:
-                    type_embedding = type_embeddings_cache[doc_type]
-                else:
-                    type_embedding = vector_store.embedding_function.embed_query(doc_type)
-                    type_embeddings_cache[doc_type] = type_embedding
-
-                similarity = cosine_similarity(
-                    np.array(query_embedding).reshape(1, -1),
-                    np.array(type_embedding).reshape(1, -1)
-                )[0][0]
-
-                if similarity > 0.5:
-                    type_boost += 0.2
-
-            final_score = score - type_boost
-
-            boosted_docs.append((doc, final_score))
+        # İlk aşama: Vektör veritabanından benzer dokümanları getir
+        results = vector_store.similarity_search_with_score(query, k=10)
+        top_docs = [doc for doc, _ in results]
         
-        boosted_docs.sort(key=lambda x: x[1])
-        top_boosted_docs = [doc for doc, _ in boosted_docs[:20]]
-
-        cross_encoder_inputs = [(query, doc.page_content) for doc in top_boosted_docs]
+        # İkinci aşama: Cross-encoder ile dokümanları yeniden sırala
+        cross_encoder_inputs = [(query, doc.page_content) for doc in top_docs]
         scores = cross_encoder.predict(cross_encoder_inputs)
-
+        
+        # Sonuçları skorlarına göre sırala ve en iyi 5'ini al
         reranked_docs = [
-            doc for _, doc in sorted(zip(scores, top_boosted_docs), key=itemgetter(0), reverse=True)
-        ]
+            doc for _, doc in sorted(zip(scores, top_docs), key=itemgetter(0), reverse=True)
+        ][:5]
 
         return {
-        "context": reranked_docs[:8],
-        "question": query
+            "context": reranked_docs,
+            "question": query
         }
-
-
 
     def generate(state: State):
         if not state["context"]:
-            return {"answer": "Bilgim yok maalesef."}
+            return {"answer": "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"}
 
         docs_content = "\n\n".join(doc.page_content for doc in state['context'])
         chat_history = memory.load_memory_variables({}).get("chat_history", [])
@@ -128,5 +96,3 @@ def build_chatbot():
         return {"answer": answer.content}
 
     return retrieve, generate
-
-save_embedding_cache(type_embeddings_cache, cache_path)

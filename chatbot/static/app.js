@@ -9,7 +9,7 @@ function toggleChat() {
     chatbox.style.display = "flex";
 
     if (!messages.innerHTML.includes("Piri Reis ChatBot")) {
-      showBotMessage("Merhaba, ben Piri Reis Üniversitesinin Yapay Zeka Asistanı **PiriX** Size nasıl yardımcı olabilirim? ⚓", false);
+      showBotMessage("Merhaba, ben Piri Reis Üniversitesinin Yapay Zeka Asistanı **PiriX**\n\n📌 İpucu: Yanıtı beğendiysen `L`, beğenmediysen `D` tuşuna basabilirsin.", false);
     }
   }
 }
@@ -221,7 +221,11 @@ if (resizeHandle) {
   });
 }
 
+// Burasi Degisti
 function addFeedbackButtons(elem) {
+  // 🔥 Önceki butonları temizle
+  document.querySelectorAll(".feedback").forEach((el) => el.remove());
+
   const feedback = document.createElement("div");
   feedback.classList.add("feedback");
 
@@ -271,7 +275,8 @@ function addFeedbackButtons(elem) {
     showThankYouToast();
   });
 
-  feedback.append(likeBtn, dislikeBtn);
+  feedback.appendChild(likeBtn);
+  feedback.appendChild(dislikeBtn);
   elem.appendChild(feedback);
 }
 
@@ -311,3 +316,22 @@ function showThankYouToast() {
     }, 300);
   }, 3000);
 }
+
+// Burasi Degisti
+document.addEventListener("keydown", function (e) {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+  const lastBotMsg = document.querySelector('.chat-message.bot:last-of-type');
+  if (!lastBotMsg) return;
+
+  const likeBtn = lastBotMsg.querySelector(".like-btn");
+  const dislikeBtn = lastBotMsg.querySelector(".dislike-btn");
+
+  if (e.key === "l" || e.key === "L") {
+    if (likeBtn && !likeBtn.disabled) likeBtn.click();
+  }
+
+  if (e.key === "d" || e.key === "D") {
+    if (dislikeBtn && !dislikeBtn.disabled) dislikeBtn.click();
+  }
+});
