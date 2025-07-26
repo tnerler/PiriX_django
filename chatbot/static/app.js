@@ -1,3 +1,14 @@
+function getSessionId(){
+  let sessiodId = localStorage.getItem("session_id");
+  if (!SessionId){
+    session_Id = "sess_" + Math.random().toString(36).slice(2) + "_" + Date.now()
+    localStorage.setItem("session_id", sessionId);
+  }
+  return SessionId;
+}
+
+
+
 function toggleChat() {
   const chatbox = document.getElementById("chatbox");
   const messages = document.getElementById("messages");
@@ -51,7 +62,10 @@ function sendMessage() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ question: msg }),
+    body: JSON.stringify({
+      question: msg,
+      session_id: getSessionId()
+    }),
     signal: controller.signal,
   })
     .then((res) => res.json())

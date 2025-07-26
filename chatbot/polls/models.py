@@ -7,7 +7,7 @@ class ChatLog(models.Model):
     question = models.TextField()
     answer = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-
+    session_id = models.CharField(max_length=100, blank=True, null=True)
     def __str__(self):
         return f"Q: {self.question[:50]}... A: {self.answer[:50]}..."
 
@@ -16,7 +16,7 @@ class FeedBack(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     feedback_type = models.CharField(max_length=10, choices=[("like", "Like"), ("dislike", "Dislike")])
     timestamp = models.DateTimeField(auto_now_add=True)
-
+    session_id = models.CharField(max_length=100, blank=True, null=True)
     class Meta:
         unique_together = ("chatlog", "user")
 

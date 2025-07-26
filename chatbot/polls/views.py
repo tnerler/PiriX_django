@@ -26,6 +26,11 @@ def ask(request):
     try:
         data = json.loads(request.body)
         question = data.get("question", "")
+        session_id = data.get("session_id") or request.COOKIES.get("session_id")
+
+        if not session_id:
+            session_id = str(uuid.uuid4())
+
 
         if not question:
             return JsonResponse({"error": "Soru bos olamaz."}, status=400)
@@ -39,21 +44,26 @@ def ask(request):
         retrieval_result = retrieve(state)
         state["context"] = retrieval_result["context"]
 
-        generation_result = generate(state)
+        generation_result = generate(state, session_id=session_id)
 
         user = request.user if request.user.is_authenticated else None
 
         chatlog = ChatLog.objects.create(
             user=user,
             question=question,
-            answer=generation_result["answer"]
+            answer=generation_result["answer"],
+            session_id = session_id
         )
 
-        # Changed: Return feedback_id instead of chatlog_id to match frontend expectations
-        return JsonResponse({
+        # Set cookie if not present
+        response = JsonResponse({
             "answer": generation_result["answer"],
-            "feedback_id": chatlog.id  # Changed from chatlog_id to feedback_id
+            "feedback_id": chatlog.id
         })
+        if not request.COOKIES.get("session_id"):
+            response.set_cookie("session_id", session_id, max_age=30*24*60*60)
+        return response
+
     except Exception as e:
         logger.error(f"Ask endpoint error: {str(e)}")
         return JsonResponse({"error": str(e)}, status=500)
@@ -70,6 +80,9 @@ def feedback(request):
         # Changed: Look for feedback_id instead of chatlog_id to match frontend
         feedback_id = data.get("feedback_id")
         feedback_type = data.get("feedback_type")
+
+
+        session_id = data.get("session_id") or request.COOKIES.get("session_id")
 
         # Debug için gelen değerleri loglayalım
         logger.info(f"Feedback ID: {feedback_id}, Feedback Type: {feedback_type}")
@@ -96,7 +109,7 @@ def feedback(request):
         feedback_obj, created = FeedBack.objects.update_or_create(
             chatlog=chatlog,
             user=user,
-            defaults={"feedback_type": feedback_type}
+            defaults={"feedback_type": feedback_type, "session_id": session_id}
         )
         
         logger.info(f"Feedback {'created' if created else 'updated'}: {feedback_obj}")

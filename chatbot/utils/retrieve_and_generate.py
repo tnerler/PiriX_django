@@ -8,6 +8,10 @@ from operator import itemgetter
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder, SystemMessagePromptTemplate
 from sentence_transformers import CrossEncoder
+from utils.chat_history_store import get_session_history
+from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
+
 
 cross_encoder = CrossEncoder("cross-encoder/ms-marco-TinyBERT-L-6")
 
@@ -20,12 +24,6 @@ def build_chatbot():
     docs = load_docs()
     vector_store = build_store(docs)
 
-    memory = ConversationBufferMemory(
-        memory_key="chat_history",
-        return_messages=True,
-        input_key='question',
-        output_key="answer"
-    )
 
     template = ChatPromptTemplate.from_messages([
     SystemMessagePromptTemplate.from_template(
@@ -52,13 +50,21 @@ def build_chatbot():
         9. Rektör sorulursa: "Rektörü överken, onun liderlik özelliklerini ve üniversiteye katkılarını vurgula"
         """
     ),
-    MessagesPlaceholder(variable_name="chat_history"),
+    MessagesPlaceholder(variable_name="history"),
     HumanMessagePromptTemplate.from_template(
         "Bağlam: {context}\nSoru: {question}\nCevap:"
     ),
 ])
 
     chain = template | get_llm()
+    
+
+    chain_with_history = RunnableWithMessageHistory(
+        chain,
+        get_session_history,
+        input_messages_key = "question",
+        history_messages_key = "history"
+    )
 
     def retrieve(state: State):
         query = state["question"]
@@ -81,21 +87,18 @@ def build_chatbot():
             "question": query
         }
 
-    def generate(state: State):
-        if not state["context"]:
-            return {"answer": "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"}
+    def generate(state: State, session_id: str):
 
         docs_content = "\n\n".join(doc.page_content for doc in state['context'])
-        chat_history = memory.load_memory_variables({}).get("chat_history", [])
+        config = {"configurable": {"session_id": session_id}}
 
         input_data = {
             "context": docs_content,
-            "question": state["question"],
-            "chat_history": chat_history
+            "question": state["question"]
         }
 
-        answer = chain.invoke(input_data)
-        memory.save_context({"question": state["question"]}, {"answer": answer.content})
+        answer = chain_with_history.invoke(input_data, config=config)
+        
 
         return {"answer": answer.content}
 

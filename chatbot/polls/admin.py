@@ -5,7 +5,7 @@ from .models import ChatLog, FeedBack
 
 @admin.register(ChatLog)
 class ChatLogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'question_preview', 'answer_preview', 'timestamp', 'feedback_count')
+    list_display = ('id', 'user', 'question_preview', 'answer_preview', 'timestamp', 'session_id', 'feedback_count')
     list_filter = ('timestamp', 'user')
     search_fields = ('question', 'answer')
     readonly_fields = ('timestamp',)
@@ -24,7 +24,7 @@ class ChatLogAdmin(admin.ModelAdmin):
 
 @admin.register(FeedBack)
 class FeedBackAdmin(admin.ModelAdmin):
-    list_display = ('id', 'chatlog_id', 'user', 'feedback_type', 'timestamp', 'question_preview', 'answer_preview')
+    list_display = ('id', 'chatlog_id', 'user', 'feedback_type', 'timestamp', 'session_id', 'question_preview', 'answer_preview')
     list_filter = ('feedback_type', 'timestamp', 'user')
     search_fields = ('chatlog__question', 'chatlog__answer')
     readonly_fields = ('timestamp',)
