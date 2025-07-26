@@ -1,0 +1,1549 @@
+{
+  "document_title": "Piri Reis Üniversitesi 2025-2026 Akademik Yılı Eğitim Ücretleri",
+  "document_date": "2025-07-25",
+  "fee_categories": [
+    {
+      "category_name": "Ön Lisans Programları",
+      "programs": [
+        {
+          "program_name": "İngilizce Hazırlık (Ön Lisans)",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Aşçılık",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Bilgisayar Programcılığı",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Deniz Brokerliği",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Deniz Ulaştırma ve İşletme",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Deniz ve Liman İşletmeciliği",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Gemi İnşaatı",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Gemi Makineleri İşletmeciliği",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Hibrid ve Elektrikli Araçlar Teknolojisi",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Sualtı Teknolojisi",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Mekatronik",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Lojistik",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Marina ve Yat İşletmeciliği",
+          "program_level": "Ön Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 170000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 212500,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 340000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 425000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 204000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 255000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 408000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 510000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Lisans Programları",
+      "programs": [
+        {
+          "program_name": "İngilizce Hazırlık (Lisans)",
+          "program_level": "Lisans",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 212000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 265000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 424000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 530000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 254400,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 318000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 508800,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 636000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Endüstri Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Mühendislik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Bilgisayar Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Mühendislik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Elektrik ve Elektronik Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Mühendislik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Makine Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Mühendislik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Gemi İnşaatı ve Gemi Makineleri Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Mühendislik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Yönetim Bilişim Sistemleri",
+          "program_level": "Lisans",
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Uluslararası Ticaret ve İşletmecilik",
+          "program_level": "Lisans",
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Lojistik Yönetimi",
+          "program_level": "Lisans",
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Denizcilik İşletmeleri Yönetimi",
+          "program_level": "Lisans",
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Ekonomi ve Finans",
+          "program_level": "Lisans",
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Hukuk",
+          "program_level": "Lisans",
+          "faculty": "Hukuk Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Deniz Ulaştırma İşletme Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Denizcilik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "program_name": "Gemi Makineleri İşletme Mühendisliği",
+          "program_level": "Lisans",
+          "faculty": "Denizcilik Fakültesi",
+          "payment_options": [
+            {
+              "payment_type": "Peşin",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 260000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 325000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 520000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 650000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            },
+            {
+              "payment_type": "Taksitli",
+              "scholarship_options": [
+                {
+                  "scholarship": "%50 ÖSYM BURSU + %20 TERCİH İNDİRİMİ",
+                  "fee": 312000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "%50 ÖSYM BURSU",
+                  "fee": 390000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ + %20 TERCİH İNDİRİMİ",
+                  "fee": 624000,
+                  "tax_info": "%10 KDV Hariç"
+                },
+                {
+                  "scholarship": "ÜCRETLİ",
+                  "fee": 780000,
+                  "tax_info": "%10 KDV Hariç"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "university_name": "Piri Reis Üniversitesi",
+    "academic_year": "2025-2026",
+    "currency": "TL",
+    "notes": "Ücretlere %10 KDV dahil değildir. Peşin ve taksitli ödeme seçenekleri mevcuttur.",
+    "last_updated": "2025-07-25"
+  }
+}
+    

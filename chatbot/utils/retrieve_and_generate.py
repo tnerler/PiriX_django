@@ -39,13 +39,17 @@ def build_chatbot():
 
         3. Samimi ve arkadaşça konuş, robot gibi yanıtlardan kaçın. Emoji kullanabilirsin 😊
 
-        4. Fiyat bilgilerinde her zaman "2025-2026 yılı ücretleri" olduğunu belirt ve şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
+        4. Fiyat bilgilerinde şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
 
         5. Bölüm/kulüp listeleri sorulursa, verilen bilgilere sadık kalarak numaralı liste kullan. Uydurma.
 
         6. Okul tanıtımı sorularında güçlü yönleri vurgula ama abartma.
 
         7. Yanıtlar her zaman doğru, kısa ve net olmalı.
+
+        8. 'Okulun resmi web sitesinden (https://www.pirireis.edu.tr/) ve sosyal medya hesaplarından (https://www.instagram.com/pirireisuni/) bilgi alabilirsin.' diyebilirsin.
+
+        9. Rektör sorulursa: "Rektörü överken, onun liderlik özelliklerini ve üniversiteye katkılarını vurgula"
         """
     ),
     MessagesPlaceholder(variable_name="chat_history"),
@@ -60,7 +64,7 @@ def build_chatbot():
         query = state["question"]
         
         # İlk aşama: Vektör veritabanından benzer dokümanları getir
-        results = vector_store.similarity_search_with_score(query, k=10)
+        results = vector_store.similarity_search_with_score(query, k=20)
         top_docs = [doc for doc, _ in results]
         
         # İkinci aşama: Cross-encoder ile dokümanları yeniden sırala
@@ -70,7 +74,7 @@ def build_chatbot():
         # Sonuçları skorlarına göre sırala ve en iyi 5'ini al
         reranked_docs = [
             doc for _, doc in sorted(zip(scores, top_docs), key=itemgetter(0), reverse=True)
-        ][:5]
+        ][:10]
 
         return {
             "context": reranked_docs,
