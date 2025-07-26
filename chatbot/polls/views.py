@@ -6,9 +6,10 @@ from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
 from .models import ChatLog, FeedBack
 import logging
-
+from utils.chat_history_store import get_session_history
 from utils.retrieve_and_generate import build_chatbot
 import uuid
+import time
 
 # Logger ekleyelim debug için
 logger = logging.getLogger(__name__)
@@ -16,9 +17,7 @@ logger = logging.getLogger(__name__)
 def home(request):
     return render(request, "index.html")
 
-
 retrieve, generate = build_chatbot()
-
 
 @csrf_exempt
 @require_http_methods(["POST"])
@@ -31,63 +30,76 @@ def ask(request):
         if not session_id:
             session_id = str(uuid.uuid4())
 
-
         if not question:
             return JsonResponse({"error": "Soru bos olamaz."}, status=400)
         
+        print(f"RECEIVED REQUEST - SESSION_ID: {session_id}")
+        print(f"QUESTION: {question}")
+        
+        # Chat history'yi kontrol et
+        history = get_session_history(session_id)
+        print(f"CURRENT HISTORY LENGTH: {len(history.messages)}")
+        
+        # State oluştur
         state = {
             "question": question,
             "context": [],
             "answer": ""
         }
 
-        retrieval_result = retrieve(state)
+        # Retrieve yap
+        retrieval_result = retrieve(state, session_id=session_id)
         state["context"] = retrieval_result["context"]
 
+        # Generate yap - bu otomatik olarak history'ye ekleyecek
         generation_result = generate(state, session_id=session_id)
+        
+        print(f"AFTER GENERATION HISTORY LENGTH: {len(history.messages)}")
 
         user = request.user if request.user.is_authenticated else None
 
+        # Database'e kaydet
         chatlog = ChatLog.objects.create(
             user=user,
             question=question,
             answer=generation_result["answer"],
-            session_id = session_id
+            session_id=session_id
         )
 
-        # Set cookie if not present
+        print(f"CHATLOG CREATED: {chatlog.id}")
+
+        # Response oluştur
         response = JsonResponse({
             "answer": generation_result["answer"],
-            "feedback_id": chatlog.id
+            "feedback_id": chatlog.id,
+            "session_id": session_id  # Debug için
         })
+        
+        # Cookie ayarla
         if not request.COOKIES.get("session_id"):
             response.set_cookie("session_id", session_id, max_age=30*24*60*60)
+            
         return response
 
     except Exception as e:
         logger.error(f"Ask endpoint error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return JsonResponse({"error": str(e)}, status=500)
-    
 
 @csrf_exempt
 @require_http_methods(["POST"])
 def feedback(request):
     try:
-        # Debug için request body'yi loglayalım
         logger.info(f"Feedback request body: {request.body}")
         
         data = json.loads(request.body)
-        # Changed: Look for feedback_id instead of chatlog_id to match frontend
         feedback_id = data.get("feedback_id")
         feedback_type = data.get("feedback_type")
-
-
         session_id = data.get("session_id") or request.COOKIES.get("session_id")
 
-        # Debug için gelen değerleri loglayalım
         logger.info(f"Feedback ID: {feedback_id}, Feedback Type: {feedback_type}")
 
-        # Validation checks
         if not feedback_id:
             return JsonResponse({"error": "Feedback ID gerekli."}, status=400)
 
@@ -95,17 +107,14 @@ def feedback(request):
             return JsonResponse({"error": "Geçersiz feedback türü."}, status=400)
 
         user = request.user if request.user.is_authenticated else None
-        logger.info(f"User: {user}")
 
-        # ChatLog'u bul - feedback_id actually corresponds to chatlog.id
         try:
-            chatlog = ChatLog.objects.get(id=feedback_id)  # Changed from chatlog_id to feedback_id
+            chatlog = ChatLog.objects.get(id=feedback_id)
             logger.info(f"ChatLog bulundu: {chatlog}")
         except ChatLog.DoesNotExist:
             logger.error(f"ChatLog bulunamadı: {feedback_id}")
             return JsonResponse({"error": "ChatLog not found"}, status=404)
 
-        # Feedback oluştur veya güncelle
         feedback_obj, created = FeedBack.objects.update_or_create(
             chatlog=chatlog,
             user=user,
@@ -119,14 +128,6 @@ def feedback(request):
             "created": created,
             "feedback_id": feedback_obj.id
         })
-    
-    except json.JSONDecodeError as e:
-        logger.error(f"JSON decode error: {str(e)}")
-        return JsonResponse({"error": "Geçersiz JSON formatı"}, status=400)
-    
-    except ChatLog.DoesNotExist:
-        logger.error(f"ChatLog not found: {feedback_id}")
-        return JsonResponse({"error": "ChatLog not found"}, status=404)
     
     except Exception as e:
         logger.error(f"Feedback endpoint error: {str(e)}")

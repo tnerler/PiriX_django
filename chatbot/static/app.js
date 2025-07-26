@@ -1,13 +1,12 @@
-function getSessionId(){
-  let sessiodId = localStorage.getItem("session_id");
-  if (!SessionId){
-    session_Id = "sess_" + Math.random().toString(36).slice(2) + "_" + Date.now()
+function getSessionId() {
+  let sessionId = localStorage.getItem("session_id");
+  if (!sessionId) {
+    sessionId = "sess_" + Math.random().toString(36).slice(2) + "_" + Date.now();
     localStorage.setItem("session_id", sessionId);
   }
-  return SessionId;
+  console.log("Session ID:", sessionId);
+  return sessionId;
 }
-
-
 
 function toggleChat() {
   const chatbox = document.getElementById("chatbox");
@@ -27,14 +26,27 @@ function toggleChat() {
 
 let controller = null;
 let isBotResponding = false;
+let lastRequestTime = 0;
 
 function sendMessage() {
-  if (isBotResponding) return; // Spam önleme kontrolü
+  if (isBotResponding) {
+    console.log("Bot yanıt veriyor, istek engellendi");
+    return;
+  }
+
+  const now = Date.now();
+  if (now - lastRequestTime < 1000) {
+    console.log("Çok hızlı istek, engellendi");
+    return;
+  }
+  lastRequestTime = now;
 
   const input = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-button");
   const msg = input.value.trim();
   if (!msg) return;
+
+  console.log("Sending message:", msg);
 
   // Gönder butonunu devre dışı bırak
   if (sendBtn) {
@@ -44,7 +56,9 @@ function sendMessage() {
   isBotResponding = true;
 
   // Önceki isteği iptal et
-  if (controller) controller.abort();
+  if (controller) {
+    controller.abort();
+  }
   controller = new AbortController();
 
   const messages = document.getElementById("messages");
@@ -57,6 +71,9 @@ function sendMessage() {
   messages.appendChild(typingDiv);
   messages.scrollTop = messages.scrollHeight;
 
+  const sessionId = getSessionId();
+  console.log("Using session ID:", sessionId);
+
   fetch("/ask", {
     method: "POST",
     headers: {
@@ -64,12 +81,19 @@ function sendMessage() {
     },
     body: JSON.stringify({
       question: msg,
-      session_id: getSessionId()
+      session_id: sessionId
     }),
     signal: controller.signal,
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then((data) => {
+      console.log("Response received:", data);
+      
       const rawMarkdown = data.answer;
       const feedbackId = data.feedback_id;
       const html = marked.parse(rawMarkdown);
@@ -96,14 +120,15 @@ function sendMessage() {
           input.focus();
           isBotResponding = false;
         }
-      }, 30); // 40ms aralıklarla yazdır (hızı ayarlanabilir)
+      }, 30);
     })
     .catch((err) => {
+      console.error("Error:", err);
       if (err.name === "AbortError") {
+        console.log("Request aborted");
         typingDiv.remove();
       } else {
         typingDiv.innerHTML = "Bir hata oluştu. Lütfen tekrar deneyin.";
-        console.error("Hata:", err);
       }
       
       // Hata durumunda da kontrolü serbest bırak
@@ -137,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (userInput) {
     userInput.addEventListener("keydown", function (e) {
       if (e.key === "Enter" && !isBotResponding) {
+        e.preventDefault();
         sendMessage();
       }
     });
@@ -235,9 +261,8 @@ if (resizeHandle) {
   });
 }
 
-// Burasi Degisti
 function addFeedbackButtons(elem) {
-  // 🔥 Önceki butonları temizle
+  // Önceki butonları temizle
   document.querySelectorAll(".feedback").forEach((el) => el.remove());
 
   const feedback = document.createElement("div");
@@ -331,7 +356,6 @@ function showThankYouToast() {
   }, 3000);
 }
 
-// Burasi Degisti
 document.addEventListener("keydown", function (e) {
   if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
 

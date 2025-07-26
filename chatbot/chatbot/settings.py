@@ -59,10 +59,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'chatbot.urls'
 
+
+TEMPLATES_DIR = Path(__file__).resolve().parent.parent.parent
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"/home/tuana/Desktop/main_django_version_22.07.2025/templates/"],
+        'DIRS': [str(TEMPLATES_DIR / "templates/")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pirireisdb',
         'USER': 'pirireis',
-        'PASSWORD': 'PiriReis2025@',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432',
     }

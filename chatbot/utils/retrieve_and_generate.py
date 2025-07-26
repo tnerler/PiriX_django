@@ -24,60 +24,99 @@ def build_chatbot():
     docs = load_docs()
     vector_store = build_store(docs)
 
-
     template = ChatPromptTemplate.from_messages([
-    SystemMessagePromptTemplate.from_template(
-        """
-        Sen PiriX'sin, Piri Reis Üniversitesi'nin bilgi asistanısın. Temel görevin: Okul hakkında kısa, doğru ve anlaşılır bilgiler vermek.
+        SystemMessagePromptTemplate.from_template(
+            """
+            Sen PiriX'sin, Piri Reis Üniversitesi'nin bilgi asistanısın. Temel görevin: Okul hakkında kısa, doğru ve anlaşılır bilgiler vermek.
 
-        ÖNEMLİ KURALLAR:
-        1. SADECE Piri Reis Üniversitesi konularına yanıt ver. Diğer konularda: "Ben sadece Piri Reis Üniversitesi hakkında bilgi verebilirim 💙 Diğer konular için başka bir asistana sormanı öneririm!"
+            ÖNEMLİ KURALLAR:
+            1. SADECE Piri Reis Üniversitesi konularına yanıt ver. Diğer konularda: "Ben sadece Piri Reis Üniversitesi hakkında bilgi verebilirim 💙 Diğer konular için başka bir asistana sormanı öneririm!"
 
-        2. Bilmediğin konularda: "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"
+            2. Bilmediğin konularda: "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"
 
-        3. Samimi ve arkadaşça konuş, robot gibi yanıtlardan kaçın. Emoji kullanabilirsin 😊
+            3. Samimi ve arkadaşça konuş, robot gibi yanıtlardan kaçın. Emoji kullanabilirsin 😊
 
-        4. Fiyat bilgilerinde şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
+            4. Fiyat bilgilerinde şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
 
-        5. Bölüm/kulüp listeleri sorulursa, verilen bilgilere sadık kalarak numaralı liste kullan. Uydurma.
+            5. Bölüm/kulüp listeleri sorulursa, verilen bilgilere sadık kalarak numaralı liste kullan. Uydurma.
 
-        6. Okul tanıtımı sorularında güçlü yönleri vurgula ama abartma.
+            6. Okul tanıtımı sorularında güçlü yönleri vurgula ama abartma.
 
-        7. Yanıtlar her zaman doğru, kısa ve net olmalı.
+            7. Yanıtlar her zaman doğru, kısa ve net olmalı.
 
-        8. 'Okulun resmi web sitesinden (https://www.pirireis.edu.tr/) ve sosyal medya hesaplarından (https://www.instagram.com/pirireisuni/) bilgi alabilirsin.' diyebilirsin.
+            8. 'Okulun resmi web sitesinden (https://www.pirireis.edu.tr/) ve sosyal medya hesaplarından (https://www.instagram.com/pirireisuni/) bilgi alabilirsin.' diyebilirsin.
 
-        9. Rektör sorulursa: "Rektörü överken, onun liderlik özelliklerini ve üniversiteye katkılarını vurgula"
-        """
-    ),
-    MessagesPlaceholder(variable_name="history"),
-    HumanMessagePromptTemplate.from_template(
-        "Bağlam: {context}\nSoru: {question}\nCevap:"
-    ),
-])
+            9. Rektör sorulursa: "Rektörü överken, onun liderlik özelliklerini ve üniversiteye katkılarını vurgula"
+
+            10. **ÖNEMLİ**: Önceki konuşma geçmişini dikkate al ve konu bağlamını koru. Kullanıcı daha önce bir konu hakkında soru sorduysa, yeni sorularını o bağlamda değerlendir.
+
+            11. **TEKRAR ETMe**: Aynı cevabı tekrar verme, her mesaj benzersiz olmalı.
+            """
+        ),
+        MessagesPlaceholder(variable_name="history"),
+        HumanMessagePromptTemplate.from_template(
+            "Bağlam: {context}\n\nSoru: {question}\n\nCevap:"
+        ),
+    ])
 
     chain = template | get_llm()
     
-
     chain_with_history = RunnableWithMessageHistory(
         chain,
         get_session_history,
-        input_messages_key = "question",
-        history_messages_key = "history"
+        input_messages_key="question",
+        history_messages_key="history"
     )
 
-    def retrieve(state: State):
+    def get_conversation_context(history, n=6):
+        """Chat history'den daha kapsamlı context oluştur"""
+        if not history.messages:
+            return ""
+        
+        # Son n mesajı al ve anlamlı bir context oluştur
+        recent_messages = history.messages[-n:]
+        context_parts = []
+        
+        for msg in recent_messages:
+            if hasattr(msg, 'content') and msg.content:
+                role = "Kullanıcı" if hasattr(msg, 'type') and msg.type == "human" else "PiriX"
+                context_parts.append(f"{role}: {msg.content}")
+        
+        return "\n".join(context_parts)
+
+    def create_enhanced_query(current_question, history):
+        """Mevcut soru ile chat history'yi birleştirerek gelişmiş sorgu oluştur"""
+        conversation_context = get_conversation_context(history, n=4)
+        
+        if not conversation_context:
+            return current_question
+        
+        # Sadece önemli context'i ekle, çok uzun olmasın
+        enhanced_query = f"{conversation_context} {current_question}"
+        return enhanced_query
+
+    def retrieve(state: State, session_id: str = None):
         query = state["question"]
         
+        # Chat history'yi al
+        history = get_session_history(session_id) if session_id else ChatMessageHistory()
+        
+        # Gelişmiş sorgu oluştur
+        enhanced_query = create_enhanced_query(query, history)
+        
+        print(f"SESSION_ID: {session_id}")
+        print(f"HISTORY MESSAGE COUNT: {len(history.messages)}")
+        print(f"ENHANCED QUERY: {enhanced_query}")
+        
         # İlk aşama: Vektör veritabanından benzer dokümanları getir
-        results = vector_store.similarity_search_with_score(query, k=20)
+        results = vector_store.similarity_search_with_score(enhanced_query, k=25)
         top_docs = [doc for doc, _ in results]
         
         # İkinci aşama: Cross-encoder ile dokümanları yeniden sırala
         cross_encoder_inputs = [(query, doc.page_content) for doc in top_docs]
         scores = cross_encoder.predict(cross_encoder_inputs)
         
-        # Sonuçları skorlarına göre sırala ve en iyi 5'ini al
+        # Sonuçları skorlarına göre sırala ve en iyi 10'unu al
         reranked_docs = [
             doc for _, doc in sorted(zip(scores, top_docs), key=itemgetter(0), reverse=True)
         ][:10]
@@ -88,18 +127,17 @@ def build_chatbot():
         }
 
     def generate(state: State, session_id: str):
-
         docs_content = "\n\n".join(doc.page_content for doc in state['context'])
         config = {"configurable": {"session_id": session_id}}
 
         input_data = {
-            "context": docs_content,
-            "question": state["question"]
+            "question": state["question"],
+            "context": docs_content
         }
 
-        answer = chain_with_history.invoke(input_data, config=config)
-        
+        print(f"GENERATING ANSWER FOR SESSION: {session_id}")
 
+        answer = chain_with_history.invoke(input_data, config=config)
         return {"answer": answer.content}
 
     return retrieve, generate
