@@ -1,60 +1,152 @@
-# PIRIX – Üniversite Chatbotu (RAG Tabanlı)
-PIRIX, üniversite web sitesindeki içerikleri anlamlandırarak kullanıcı sorularına anlamlı cevaplar üreten bir Retrieval-Augmented Generation (RAG) tabanlı chatbot sistemidir.
-Amaç, üniversiteye dair bilgi akışını otomatikleştirmek ve öğrencilere yapay zeka destekli bir asistan sunmaktır.
+# 🎓 PiriX
 
-## Proje Yapısı
+![image1](image1)
+
+PiriX – Piri Reis Üniversitesi için Yapay Zeka Destekli Chatbot & Bilgi Sistemi  
+*Django ile geliştirildi | Python, HTML, CSS, JavaScript*
+
+---
+
+> **AI-powered university assistant**  
+> Bilgiye hızlı ulaşım, akıllı yanıtlar ve modern web arayüzüyle öğrenciler ile akademisyenler için yeni nesil bilgi sistemi.
+
+---
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![Django](https://img.shields.io/badge/Django-4.x-darkgreen?logo=django)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Educational](https://img.shields.io/badge/Use-Educational-orange)
+![OpenAI](https://img.shields.io/badge/OpenAI-integrated-blueviolet?logo=openai)
+![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-lightblue)
+
+---
+
+## 📌 Proje Özeti
+
+**django_version**, Piri Reis Üniversitesi'nin akademik ve öğrenci işleri ile ilgili soruları yanıtlayan, OpenAI tabanlı bir sohbet botu ve web platformudur.  
+Kullanıcılar; bölümler, ücretler, burslar, ders içerikleri ve kampüs yaşamı gibi konularda doğal dilde soru sorabilir ve güncel bilgi alabilir.
+
+---
+
+## 🚀 Başlıca Özellikler
+
+- **Django Tabanlı Backend:** Güçlü ve esnek Python altyapısı
+- **OpenAI API Entegrasyonu:** Akıllı ve bağlam koruyan yanıtlar
+- **Sohbet Geçmişi Özeti:** Konu bütünlüğü için otomatik özetleme
+- **Modern Web Arayüzü:** Kullanıcı dostu ve responsive tasarım (HTML, CSS, JavaScript)
+- **Bölüm, Ücret, Burs, Erasmus, Akademik Takvim gibi konularda sorgulama**
+- **Çoklu dil desteği ve gelişmiş arama fonksiyonları**
+- **Kolay özelleştirilebilir yapı**
+
+---
+
+## 🗂️ Dosya ve Klasör Yapısı
+
 ```
-PIRIX/
-├── get_data/              # Ham veri çekme işlemleri (API, scraping vs.)
-├── tag_embeddings/        # Tag'lerin embedding'lerinin tutulduğu yer
-├── vector_db/             # FAISS vektör veritabanı dosyaları
-├── _faiss.py              # FAISS'e embedding ekleme & sorgulama modülü
-├── config.py              # Ortam ayarları (API key, model vs.)
-├── load_docs.py           # Dosyaları LangChain Document listesine çevirme
-├── main.py                # Ana uygulama (pipeline başlatıcı)
-├── openai_clients.py      # OpenAI embedding & completion client
-├── retrieve_and_generate.py # RAG sürecinin yürütüldüğü ana modül
-├── tag_embeddings.py      # Tag embedding hesaplama ve saklama
-├── .env                   # Ortam değişkenleri
-├── .gitignore             # Versiyon kontrolü dışında bırakılan dosyalar
-└── requirements.txt       # Gerekli Python paketleri
+django_version/
+├── .gitignore
+├── .idea/
+├── README.md
+├── chatbot/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── views.py
+│   ├── templates/
+│   └── static/
+├── deneme.py
+├── requirements.txt
+├── manage.py
+├── templates/
+│   └── *.html
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── .env          # Ortam değişkenleri, gizli tutulur!
 ```
-## ⚙️ Ortam Değişkenleri (.env)
 
-```env
-OPENAI_API_KEY=your_openai_api_key
-LANGSMITH_TRACING=true # Opsiyonel
-LANGSMITH_API_KEY=your_langsmith_api_key # Opsiyonel
-```
-**Langsmith ile model çıktılarınızı takip etmek için LANGSMITH_TRACING=true ve API anahtarınızı eklemeyi unutmayın.**
-## Kullanım
-```
-python main.py
-```
-**Bu komut, dökümanları yükler, vektör veritabanını hazırlar, OpenAI ile soruları cevaplayan sistemi başlatır.**
+- `.gitignore`         : Versiyon kontrolüne dahil edilmeyecek dosyalar
+- `.idea/`             : IDE (PyCharm vb.) proje ayarları
+- `README.md`          : Proje açıklama ve kullanım dokümantasyonu
+- `chatbot/`           : Chatbot ve ilgili Django uygulama dosyaları
+- `deneme.py`          : Test/örnek Python dosyası
+- `requirements.txt`   : Gerekli Python paketleri
+- `manage.py`          : Django yönetim komutları
+- `templates/`         : HTML şablonları
+- `static/`            : CSS, JS, ve görseller
+- `.env`               : Ortam değişkenleri (gizli, versiyon kontrolüne eklenmez)
 
-## Teknolojiler
-* LangChain – Döküman işleme ve RAG pipeline yönetimi
+---
 
-* FAISS – Vektör arama veritabanı
+## 🛠️ Kurulum ve Çalıştırma
 
-* OpenAI API – Embedding ve metin üretimi
+1. **Repoyu Klonlayın:**
+   ```bash
+   git clone https://github.com/tnerler/django_version.git
+   cd django_version
+   ```
+2. **Gerekli Paketleri Yükleyin:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Ortam Değişkenlerini Tanımlayın:**
+   - `.env` dosyasına OpenAI API anahtarınızı ve diğer özel bilgileri ekleyin.
+4. **Veritabanı Migrasyonlarını Uygulayın:**
+   ```bash
+   python manage.py migrate
+   ```
+5. **Sunucuyu Başlatın:**
+   ```bash
+   python manage.py runserver
+   ```
+6. **Web arayüzüne gidin ve sorularınızı sorun!**
 
-* Python – Tüm backend
+---
 
-* dotenv – Ortam değişkenleri yönetimi
-## Notlar
-* Web scraping işlemleri **get_data/** klasöründe yönetilir.
+## 👩‍💻 Kullanım Senaryoları
 
-* Tag Embedding'ler **tag_embeddings/** altında güncellenir. Versiyon kontrolü dışındadır.
+- **Bölüm Bilgisi Sorma:**  
+  “Bilgisayar Mühendisliği dersleri neler?”
+- **Ücret ve Burs Bilgisi:**  
+  “2025-2026 Hukuk Fakültesi ücretleri nedir?”
+- **Kampüs Olanakları:**  
+  “Erasmus ile yurtdışına nasıl gidebilirim?”
+- **Akademik Takvim:**  
+  “Final sınavları ne zaman başlıyor?”
 
-* FAISS veritabanı **vector_db/** içinde saklanır. Versiyon kontrolü dışındadır.
-## 🤝 Katkı Sağla
+---
 
-Bu projeye katkıda bulunmak isterseniz:
+## 💡 Katkı ve Geliştirme
 
-- Projeyi forkladıktan sonra geliştirmeler yapabilir ve pull request açabilirsiniz.  
-- Projede gördüğünüz hatalar veya öneriler için issue açabilirsiniz.  
-- Dokümantasyon, test veya yeni özellik ekleyerek katkı sağlayabilirsiniz.
+- Fork'layın, branch açın, PR gönderin!
+- Hatalar, öneriler ve yeni özellikler için [issue açabilirsiniz](https://github.com/tnerler/django_version/issues).
+- Kod kalitesini korumak için PEP8 ve Django en iyi uygulamalarına dikkat edin.
 
-Her türlü katkı değerlidir, teşekkürler! 💙
+---
+
+## 📚 Teknolojiler
+
+- **Python (%91.9)**
+- **CSS (%4.2)**
+- **JavaScript (%3.1)**
+- **HTML (%0.8)**
+- **OpenAI GPT entegrasyonu**
+- **Django framework**
+
+---
+
+## 📝 Lisans
+
+MIT Lisansı – Dilediğiniz gibi kullanabilir, geliştirebilirsiniz.
+
+---
+
+## 📣 İletişim
+
+Sorularınız, geri bildirimleriniz ve geliştirme talepleriniz için:  
+[GitHub Profilim](https://github.com/tnerler)
+
+---
+
+> 🚢 PiriX ile üniversite hayatı daha kolay!
