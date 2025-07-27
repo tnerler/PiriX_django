@@ -1,6 +1,6 @@
 # 🎓 PiriX
 
-![image1](image1)
+![image1](Screenshot_1.png)
 
 PiriX – Piri Reis Üniversitesi için Yapay Zeka Destekli Chatbot & Bilgi Sistemi  
 *Django ile geliştirildi | Python, HTML, CSS, JavaScript*
