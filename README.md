@@ -36,7 +36,7 @@ Kullanıcılar; bölümler, ücretler, burslar, ders içerikleri ve kampüs yaş
 - **Sohbet Geçmişi Özeti:** Konu bütünlüğü için otomatik özetleme
 - **Modern Web Arayüzü:** Kullanıcı dostu ve responsive tasarım (HTML, CSS, JavaScript)
 - **Bölüm, Ücret, Burs, Erasmus, Akademik Takvim gibi konularda sorgulama**
-- **Çoklu dil desteği ve gelişmiş arama fonksiyonları**
+- **Gelişmiş arama fonksiyonları**
 - **Kolay özelleştirilebilir yapı**
 
 ---
