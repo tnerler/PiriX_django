@@ -11,7 +11,7 @@ from sentence_transformers import CrossEncoder
 from utils.chat_history_store import get_session_history
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-
+from utils.summarizer import summarize_messages
 
 cross_encoder = CrossEncoder("cross-encoder/ms-marco-TinyBERT-L-6")
 
@@ -55,7 +55,7 @@ def build_chatbot():
         ),
         MessagesPlaceholder(variable_name="history"),
         HumanMessagePromptTemplate.from_template(
-            "Bağlam: {context}\n\nSoru: {question}\n\nCevap:"
+            "Bağlam (Özet): {context}\n\nSoru: {question}\n\nCevap:"
         ),
     ])
 
@@ -68,31 +68,35 @@ def build_chatbot():
         history_messages_key="history"
     )
 
-    def get_conversation_context(history, n=6):
-        """Chat history'den daha kapsamlı context oluştur"""
+    def get_conversation_summary(history, n=5):
+        """Son n mesajdan ozet cikarir."""
+        
         if not history.messages:
             return ""
         
-        # Son n mesajı al ve anlamlı bir context oluştur
         recent_messages = history.messages[-n:]
-        context_parts = []
-        
-        for msg in recent_messages:
-            if hasattr(msg, 'content') and msg.content:
-                role = "Kullanıcı" if hasattr(msg, 'type') and msg.type == "human" else "PiriX"
-                context_parts.append(f"{role}: {msg.content}")
-        
-        return "\n".join(context_parts)
+        messages = []
 
+        for msg in recent_messages:
+            if hasattr(msg, "content") and msg.content:
+                role = "Kullanıcı" if hasattr(msg, "type") and msg.type == "human" else "PiriX"
+                messages.append(f"{role}: {msg.content}")
+            
+        summary = summarize_messages(messages)
+        
+        print(f"SUMMARY: {summary}")
+
+        return summary
+    
     def create_enhanced_query(current_question, history):
         """Mevcut soru ile chat history'yi birleştirerek gelişmiş sorgu oluştur"""
-        conversation_context = get_conversation_context(history, n=4)
+        summary = get_conversation_summary(history, n=5)
         
-        if not conversation_context:
+        if not summary:
             return current_question
         
         # Sadece önemli context'i ekle, çok uzun olmasın
-        enhanced_query = f"{conversation_context} {current_question}"
+        enhanced_query = f"Özet: {summary}\n\nSoru: {current_question}"
         return enhanced_query
 
     def retrieve(state: State, session_id: str = None):
@@ -104,9 +108,6 @@ def build_chatbot():
         # Gelişmiş sorgu oluştur
         enhanced_query = create_enhanced_query(query, history)
         
-        print(f"SESSION_ID: {session_id}")
-        print(f"HISTORY MESSAGE COUNT: {len(history.messages)}")
-        print(f"ENHANCED QUERY: {enhanced_query}")
         
         # İlk aşama: Vektör veritabanından benzer dokümanları getir
         results = vector_store.similarity_search_with_score(enhanced_query, k=25)
@@ -130,12 +131,13 @@ def build_chatbot():
         docs_content = "\n\n".join(doc.page_content for doc in state['context'])
         config = {"configurable": {"session_id": session_id}}
 
+        history = get_session_history(session_id) if session_id else ChatMessageHistory()
+        summary = get_conversation_summary(history, n=5)
         input_data = {
             "question": state["question"],
-            "context": docs_content
+            "context": docs_content,
+            "summary": summary
         }
-
-        print(f"GENERATING ANSWER FOR SESSION: {session_id}")
 
         answer = chain_with_history.invoke(input_data, config=config)
         return {"answer": answer.content}

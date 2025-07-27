@@ -33,12 +33,10 @@ def ask(request):
         if not question:
             return JsonResponse({"error": "Soru bos olamaz."}, status=400)
         
-        print(f"RECEIVED REQUEST - SESSION_ID: {session_id}")
-        print(f"QUESTION: {question}")
         
         # Chat history'yi kontrol et
         history = get_session_history(session_id)
-        print(f"CURRENT HISTORY LENGTH: {len(history.messages)}")
+        
         
         # State oluştur
         state = {
@@ -54,7 +52,7 @@ def ask(request):
         # Generate yap - bu otomatik olarak history'ye ekleyecek
         generation_result = generate(state, session_id=session_id)
         
-        print(f"AFTER GENERATION HISTORY LENGTH: {len(history.messages)}")
+
 
         user = request.user if request.user.is_authenticated else None
 
@@ -66,7 +64,6 @@ def ask(request):
             session_id=session_id
         )
 
-        print(f"CHATLOG CREATED: {chatlog.id}")
 
         # Response oluştur
         response = JsonResponse({
