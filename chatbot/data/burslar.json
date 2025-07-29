@@ -13,7 +13,7 @@
         },
         {
           "name": "Tercih İndirimi",
-          "description": "Ücretli veya %50 burslu bölümlere ilk 3 tercihine yazıp yerleşen öğrencilere eğitim-öğretim yılları boyunca ödeyeceği ücret üzerinden %20 oranında tercih indirimi uygulanır.",
+          "description": "Ücretli veya %50 burslu bölümlerden herhangi birini ilk 3 tercihi arasında gösterip yerleşen öğrencilere, üniversitede öğrenim gördükleri tüm eğitim-öğretim yılları boyunca ödeyecekleri ücret üzerinden %20 oranında tercih indirimi kesintisiz olarak uygulanacaktır.",
           "eligibility": "İlk 3 tercihinden birine yerleşen öğrenciler",
           "discount_rate": 20,
           "type": "indirim"

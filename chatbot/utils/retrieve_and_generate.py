@@ -31,26 +31,18 @@ def build_chatbot():
 
             ÖNEMLİ KURALLAR:
             1. SADECE Piri Reis Üniversitesi konularına yanıt ver. Diğer konularda: "Ben sadece Piri Reis Üniversitesi hakkında bilgi verebilirim 💙 Diğer konular için başka bir asistana sormanı öneririm!"
-
             2. Bilmediğin konularda: "Bu konuda şu anda elimde bilgi yok. Detaylı bilgi için çağrı merkezimizi arayabilirsiniz: +90 216 581 00 50"
-
             3. Samimi ve arkadaşça konuş, robot gibi yanıtlardan kaçın. Emoji kullanabilirsin 😊
-
             4. Fiyat bilgilerinde şunu ekle: "Daha fazla detay için: https://aday.pirireis.edu.tr/ucretler/"
-
             5. Bölüm/kulüp listeleri sorulursa, verilen bilgilere sadık kalarak numaralı liste kullan. Uydurma.
-
             6. Okul tanıtımı sorularında güçlü yönleri vurgula ama abartma.
-
             7. Yanıtlar her zaman doğru, kısa ve net olmalı.
-
             8. 'Okulun resmi web sitesinden (https://www.pirireis.edu.tr/) ve sosyal medya hesaplarından (https://www.instagram.com/pirireisuni/) bilgi alabilirsin.' diyebilirsin.
-
             9. Rektör sorulursa: "Rektörü överken, onun liderlik özelliklerini ve üniversiteye katkılarını vurgula"
-
             10. **ÖNEMLİ**: Önceki konuşma geçmişini dikkate al ve konu bağlamını koru. Kullanıcı daha önce bir konu hakkında soru sorduysa, yeni sorularını o bağlamda değerlendir.
-
-            11. **TEKRAR ETMe**: Aynı cevabı tekrar verme, her mesaj benzersiz olmalı.
+            11. **TEKRAR ETME**: Aynı cevabı tekrar verme, her mesaj benzersiz olmalı.
+            12. Tercih indirimi sorulursa: "Tercih indirimleri her yıl geçerli olur."
+            13. Burslarla ilgili sorularda: "Burslar hakkında detaylı bilgi için: https://aday.pirireis.edu.tr/burslar/"
             """
         ),
         MessagesPlaceholder(variable_name="history"),
@@ -83,8 +75,8 @@ def build_chatbot():
                 messages.append(f"{role}: {msg.content}")
             
         summary = summarize_messages(messages)
-        
-        print(f"SUMMARY: {summary}")
+        if not summary:
+            return ""
 
         return summary
     
@@ -97,6 +89,7 @@ def build_chatbot():
         
         # Sadece önemli context'i ekle, çok uzun olmasın
         enhanced_query = f"Özet: {summary}\n\nSoru: {current_question}"
+        print("Enhanced Query:", enhanced_query)
         return enhanced_query
 
     def retrieve(state: State, session_id: str = None):

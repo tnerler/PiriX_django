@@ -19,11 +19,18 @@ from load_docs.load_uniforma_yonetmeligi import process_data as process_uniforma
 from load_docs.load_erasmus_universiteleri import process_data as process_erasmus_json
 from load_docs.load_kampus_olanaklari import process_data as process_kampus_json
 from load_docs.load_siralamalar import process_data as process_siralamalar_json
-from load_docs.load_ucretler import process_data as process_ucretler_json
 from load_docs.load_ulasim import process_data as process_ulasim_json
 from load_docs.load_burslar import process_data as process_burslar_json
 from load_docs.load_sik_sorulan_sorular import process_data as process_sik_sorulan_sorular_json
 from load_docs.load_pru_brosur import process_data as process_pru_brosur_md
+from load_docs.load_proje_ofisi_koordinatorlugu import process_data as process_proje_ofisi_json
+from load_docs.load_teknopark import process_data as process_teknopark_json
+from load_docs.load_tezsiz_yuksek_lisans import process_data as process_tezsiz_yuksek_lisans_json
+from load_docs.load_tezli_yuksek_lisans import process_data as process_tezli_yuksek_lisans_json
+from load_docs.load_doktora_programlari import process_data as process_doktora_programlari_json
+from load_docs.load_ogrenciler_icin_bilgi import process_data as process_ogrenciler_bilgi_json
+from load_docs.load_diploma_eki import process_data as process_diploma_eki_json
+
 
 def compute_hash(content: str) -> str:
     """
@@ -68,14 +75,26 @@ def identify_json_type(data, file_name: str) -> str:
         return "kampus_olanaklari"
     elif file_name_lower == "siralamalar.json":
         return "siralamalar"
-    elif file_name_lower == "ucretler.json":
-        return "ucretler"
     elif file_name_lower == "ulasim.json":
         return "ulasim"
     elif file_name_lower == "burslar.json":
         return "burslar"
     elif file_name_lower == "sik_sorulan_sorular.json":
         return "sik_sorulan_sorular"
+    elif file_name_lower == "proje_ofisi_koordinatorlugu.json":
+        return "proje_ofisi_koordinatorlugu"
+    elif file_name_lower == "teknopark.json":
+        return "teknopark"
+    elif file_name_lower == "tezsiz_yuksek_lisans.json":
+        return "tezsiz_yuksek_lisans"
+    elif file_name_lower == "tezli_yuksek_lisans.json":
+        return "tezli_yuksek_lisans"
+    elif file_name_lower == "doktora_programlari.json":
+        return "doktora_programlari"
+    elif file_name_lower == "ogrenciler_icin_bilgiler.json":
+        return "ogrenciler_icin_bilgi"
+    elif file_name_lower == "diploma_eki.json":
+        return "diploma_eki"
     else:
         return "unknown"
 
@@ -136,14 +155,26 @@ def load_docs() -> List[Document]:
                 docs = process_kampus_json(data, file_name)
             elif json_type == "siralamalar":
                 docs = process_siralamalar_json(data, file_name)
-            elif json_type == "ucretler":
-                docs = process_ucretler_json(data, file_name)
             elif json_type == "ulasim":
                 docs = process_ulasim_json(data, file_name)
             elif json_type == "burslar":
                 docs = process_burslar_json(data, file_name)
             elif json_type == "sik_sorulan_sorular":
                 docs = process_sik_sorulan_sorular_json(data, file_name)
+            elif json_type == "proje_ofisi_koordinatorlugu":
+                docs = process_proje_ofisi_json(data, file_name)
+            elif json_type == "teknopark":
+                docs = process_teknopark_json(data, file_name)
+            elif json_type == "tezsiz_yuksek_lisans":
+                docs = process_tezsiz_yuksek_lisans_json(data, file_name)
+            elif json_type == "tezli_yuksek_lisans":
+                docs = process_tezli_yuksek_lisans_json(data, file_name)
+            elif json_type == "doktora_programlari":
+                docs = process_doktora_programlari_json(data, file_name)
+            elif json_type == "ogrenciler_icin_bilgi":
+                docs = process_ogrenciler_bilgi_json(data, file_name)
+            elif json_type == "diploma_eki":
+                docs = process_diploma_eki_json(data, file_name)
             else:
                 print(f"[WARNING] Unknown JSON structure in {file_name}, skipping...")
                 continue
