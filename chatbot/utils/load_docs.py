@@ -30,7 +30,10 @@ from load_docs.load_tezli_yuksek_lisans import process_data as process_tezli_yuk
 from load_docs.load_doktora_programlari import process_data as process_doktora_programlari_json
 from load_docs.load_ogrenciler_icin_bilgi import process_data as process_ogrenciler_bilgi_json
 from load_docs.load_diploma_eki import process_data as process_diploma_eki_json
-
+from load_docs.load_rektor import process_data as process_rektor_json
+from load_docs.load_ingilizce_hazirlik_takvim import process_data as process_ingilizce_hazirlik_takvim_json
+from load_docs.load_lisans_onlisans_akademik_takvim import process_data as process_lisans_onlisans_akademik_takvim_json
+from load_docs.load_lisansustu_egitim_enstitusu_akademik_takvim import process_data as process_lisansustu_egitim_enstitusu_akademik_takvim_json
 
 def compute_hash(content: str) -> str:
     """
@@ -95,6 +98,14 @@ def identify_json_type(data, file_name: str) -> str:
         return "ogrenciler_icin_bilgi"
     elif file_name_lower == "diploma_eki.json":
         return "diploma_eki"
+    elif file_name_lower == "rektor.json":
+        return "rektor"
+    elif file_name_lower == "ingilizce_hazirlik_takvim.json":
+        return "ingilizce_hazirlik_takvim"
+    elif file_name_lower == "lisans_onlisans_akademik_takvim.json": 
+        return "lisans_onlisans_akademik_takvim"
+    elif file_name_lower == "lisansustu_egitim_enstitusu_akademik_takvim.json":
+        return "lisansustu_egitim_enstitusu_akademik_takvim"
     else:
         return "unknown"
 
@@ -175,6 +186,14 @@ def load_docs() -> List[Document]:
                 docs = process_ogrenciler_bilgi_json(data, file_name)
             elif json_type == "diploma_eki":
                 docs = process_diploma_eki_json(data, file_name)
+            elif json_type == "rektor":
+                docs = process_rektor_json(data, file_name)
+            elif json_type == "ingilizce_hazirlik_takvim":  
+                docs = process_ingilizce_hazirlik_takvim_json(data, file_name)
+            elif json_type == "lisans_onlisans_akademik_takvim":
+                docs = process_lisans_onlisans_akademik_takvim_json(data, file_name)
+            elif json_type == "lisansustu_egitim_enstitusu_akademik_takvim":
+                docs = process_lisansustu_egitim_enstitusu_akademik_takvim_json(data, file_name)
             else:
                 print(f"[WARNING] Unknown JSON structure in {file_name}, skipping...")
                 continue

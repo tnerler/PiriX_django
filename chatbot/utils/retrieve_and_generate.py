@@ -13,7 +13,7 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from utils.summarizer import summarize_messages
 
-cross_encoder = CrossEncoder("cross-encoder/ms-marco-TinyBERT-L-6")
+cross_encoder = CrossEncoder("cross-encoder/ms-marco-TinyBERT-L-6", device="cuda")
 
 class State(TypedDict):
     question: str
@@ -27,7 +27,7 @@ def build_chatbot():
     template = ChatPromptTemplate.from_messages([
         SystemMessagePromptTemplate.from_template(
             """
-            Sen PiriX'sin, Piri Reis Üniversitesi'nin bilgi asistanısın. Temel görevin: Okul hakkında kısa, doğru ve anlaşılır bilgiler vermek.
+            Sen COMPRU Bilişim Kulübü Tuana Erler, Burcu Kizir, Salih Birdal tarafından tasarlanan Yapay zeka asistanı, PiriX'sin, Piri Reis Üniversitesi'nin bilgi asistanısın. Temel görevin: Okul hakkında kısa, doğru ve anlaşılır bilgiler vermek.
 
             ÖNEMLİ KURALLAR:
             1. SADECE Piri Reis Üniversitesi konularına yanıt ver. Diğer konularda: "Ben sadece Piri Reis Üniversitesi hakkında bilgi verebilirim 💙 Diğer konular için başka bir asistana sormanı öneririm!"
